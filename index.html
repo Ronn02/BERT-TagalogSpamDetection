@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BERT Tagalog Spam Detection</title>
+    
+</head>
+<style>
+    * 
+    {
+    padding: 0;
+    margin:0;
+    
+    }
+    .container
+    {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    }
+    h1 {
+    color: #333;
+}
+
+textarea {
+    width: 80%;
+    padding: 10px;
+}
+
+input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #333;
+}
+        
+</style>
+<body>
+    <div class="container">
+    <h1>BERT Tagalog Spam Detection</h1>
+    <form method="POST" action="/predict">
+        <textarea name="text" rows="4" cols="50" placeholder="Enter a text to classify"></textarea><br>
+        <input type="submit" value="Classify">
+    </form>
+    
+    {% if text %}
+            <h2>Entered Text:</h2>
+            <p>{{ text }}</p>
+        {% endif %}
+    
+    {% if prediction %}
+        <h2>Prediction:</h2>
+        <p>{{ prediction }}</p>
+    {% endif %}
+    <h1>You can also upload a csv file with text, so we can classify them</h1>
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="csv_file" accept=".csv">
+        <input type="submit" value="Upload CSV">
+    </form>
+</div>
+
+   
+    
+</body>
+</html>

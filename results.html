@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BERT Classification Results</title>
+</head>
+<style>
+    *{
+        padding:0;
+        margin: 0;
+
+    }
+    .container
+    {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+    }
+   
+</style>
+<body>
+    <div class="container">
+    <h1>BERT Classification Results</h1>
+    
+    <table>
+        <tr>
+            <th>Text</th>
+            <th>Prediction</th>
+        </tr>
+        
+        {% for result in results %}
+        <tr>
+            <td>{{ result[0] }}</td>
+            <td>{{ result[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<a href="/">Go Back</a>
+</body>
+</html>
